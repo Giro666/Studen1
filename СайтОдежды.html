@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Магазин Одежды</title>
+    <style>
+        body {
+            background: #f8f8f8;
+            font-family: Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 480px;
+            margin: 30px auto;
+            box-shadow: 0 0 10px #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .header, .footer {
+            background: #f9a547;
+            padding: 14px 15px;
+            font-weight: bold;
+            font-size: 22px;
+            color: #191919;
+        }
+        .main {
+            display: flex;
+            background: #fff;
+        }
+        .sidebar {
+            background: #fc9153;
+            width: 110px;
+            min-height: 180px;
+            padding: 10px 8px;
+            font-size: 14px;
+            color: #333;
+            box-sizing: border-box;
+        }
+        .product-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 10px 8px;
+            background: #fff;
+        }
+        .product-card {
+            background: #ffe74d;
+            border-radius: 3px;
+            padding: 11px;
+            border: 1px solid #fff4cc;
+        }
+        .product-card button {
+            margin-top: 7px;
+            padding: 3px 12px;
+            background: #fc9153;
+            border: none;
+            color: #fff;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .product-card button:hover {
+            background: #ffae60;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">17</div>
+    <div class="main">
+        <div class="sidebar">
+            <b>Меню</b><br>
+            <br>
+            <a href="#">Главная</a><br>
+            <a href="#">Мужское</a><br>
+            <a href="#">Женское</a><br>
+            <a href="#">Контакты</a>
+        </div>
+        <div class="product-list" id="products">
+            <!-- Товары будут добавляться тут через JS -->
+        </div>
+    </div>
+    <div class="footer">Магазин одежды</div>
+</div>
+<script>
+    // Пример товаров
+    const productData = [
+        {
+            name: "Футболка белая",
+            price: "1050 руб.",
+            desc: "100% хлопок, разные размеры"
+        },
+        {
+            name: "Джинсы классические",
+            price: "3300 руб.",
+            desc: "Синий деним, размеры S-XL"
+        }
+    ];
+
+    const productsEl = document.getElementById('products');
+    productData.forEach(prod => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+            <b>${prod.name}</b><br>
+            ${prod.desc}<br>
+            <span><b>${prod.price}</b></span><br>
+            <button>Купить</button>
+        `;
+        productsEl.appendChild(card);
+    });
+</script>
+</body>
+</html>
